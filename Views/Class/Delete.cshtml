@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h2>Edit Class</h2>
+<form method="post" action="@Url.RouteUrl("class.delete.post")">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input class="form-control" type="text" name="name" value="@(Model?.Name)" />
+    </div>
+    <button class="btn btn-primary" type="submit">Delete</button>
+</form>

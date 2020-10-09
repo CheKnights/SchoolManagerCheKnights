@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SchoolManager.Models.Student>
+@{
+	ViewBag.Title = "Students";
+}
+
+<h2>Students</h2>
+
+<a class="btn btn-primary" href="@Url.RouteUrl("student.edit")">Add</a>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Enrollment ID</th>
+			<th>Name</th>
+			<th>Classes</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model.Any())
+		{
+			foreach (SchoolManager.Models.Student student in Model)
+			{
+				<tr>
+					<td></td>
+					<td>@student.FirstName @student.LastName</td>
+					<td></td>
+					<td><a href="@Url.RouteUrl("student.edit", new { token = student.Token })">Edit</a></td>
+				</tr>
+			}
+		}
+		else
+		{
+			<tr>
+				<td colspan="3" class="text-center">There are currently no students</td>
+			</tr>
+		}
+	</tbody>
+</table>
